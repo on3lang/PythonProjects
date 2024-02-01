@@ -28,21 +28,35 @@ def navigator():
     match c:
         case 1:
             v = generateRandomNumberEasy()
-            print("value: "+ color.RED + f"{v}" + color.END)
-            navigator()
+            guessing(v)
+            
         case 2:
             v = generateRandomNumberMedium()
-            print("value: "+ color.RED + f"{v}" + color.END)
-            navigator()
+            guessing(v)
         case 3:
             v = generateRandomNumberDifficult()
-            print("value: "+ color.RED + f"{v}" + color.END)
-            navigator()
+            guessing(v)
         case 4:
             print(color.BOLD + color.GREEN + "Exiting" + color.END)
         case _:
             print(color.BOLD + color.GREEN + "Please choose a value from the list!" + color.END)
             navigator()
+
+def guessing(v):
+    g = int(input("Try guessing the number: "))
+
+    if g < v:
+        print("")
+        print(color.BOLD + color.GREEN + "Wrong! The secret number is GREATER than your try." + color.END)
+        guessing(v)
+    elif g > v:
+        print("")
+        print(color.BOLD + color.GREEN + "Wrong! The secret number is LOWER than your try." + color.END)
+        guessing(v)
+    elif g == v:
+        print("")
+        print(color.BOLD + color.GREEN + "GUESSED! Nice Job!" + color.END)
+        navigator()
 
 def generateRandomNumberEasy():
     value = randint(1,10)
