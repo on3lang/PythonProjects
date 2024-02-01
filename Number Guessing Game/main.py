@@ -19,43 +19,47 @@ def main():
 def navigator():
     print("")
     print("Please choose a difficulty level: ")
-    print("1. Easy")
-    print("2. Medium")
-    print("3. Difficult")
+    print("1. Easy (0-10)")
+    print("2. Medium (0-100)")
+    print("3. Difficult (0-1000)")
     print("4. Exit")
     c = int(input("Choose: "))
 
+    tries = 1
+
     match c:
         case 1:
-            v = generateRandomNumberEasy()
-            guessing(v)
-            
+            value = generateRandomNumberEasy()
+            guessing(value, tries)
         case 2:
-            v = generateRandomNumberMedium()
-            guessing(v)
+            value = generateRandomNumberMedium()
+            guessing(value, tries)
         case 3:
-            v = generateRandomNumberDifficult()
-            guessing(v)
+            value = generateRandomNumberDifficult()
+            guessing(value, tries)
         case 4:
+            print("")
             print(color.BOLD + color.GREEN + "Exiting" + color.END)
         case _:
             print(color.BOLD + color.GREEN + "Please choose a value from the list!" + color.END)
             navigator()
 
-def guessing(v):
+def guessing(v, t):
     g = int(input("Try guessing the number: "))
 
     if g < v:
         print("")
         print(color.BOLD + color.GREEN + "Wrong! The secret number is GREATER than your try." + color.END)
-        guessing(v)
+        t += 1
+        guessing(v, t)
     elif g > v:
         print("")
         print(color.BOLD + color.GREEN + "Wrong! The secret number is LOWER than your try." + color.END)
-        guessing(v)
+        t += 1
+        guessing(v, t)
     elif g == v:
         print("")
-        print(color.BOLD + color.GREEN + "GUESSED! Nice Job!" + color.END)
+        print(color.BOLD + color.GREEN + f"GUESSED! Nice Job! You did it in {t} tries" + color.END)
         navigator()
 
 def generateRandomNumberEasy():
