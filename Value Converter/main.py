@@ -1,3 +1,5 @@
+import numpy as np
+
 class color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -20,7 +22,8 @@ def startConverter():
     print("2. F to C")
     print("3. EUR to USD")
     print("4. USD to EUR")
-    print("5. Exit")
+    print("5. Radius to circumference")
+    print("6. Exit")
     print("")
     c = int(input("Please choose an option: "))
 
@@ -43,6 +46,10 @@ def startConverter():
             startConverter()
         case 5:
             print("")
+            calcCircunference(int(input("Enter a radius: ")))
+            startConverter()
+        case 6:
+            print("")
             print(color.GREEN + "Exiting" + color.END)
         case _:
             print("")
@@ -64,6 +71,10 @@ def EURtoUSD(e):
 def USDtoEUR(u):
     e = u / 1.13
     print(color.GREEN + f"{u}USD is {e}EUR" + color.END)
+
+def calcCircunference(r):
+    c = r * np.pi
+    print(color.GREEN + f"Given the radius {r}, the circuference is {c}" + color.END)
 
 if __name__ == "__main__":
     main()
