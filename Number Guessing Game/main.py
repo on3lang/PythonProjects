@@ -1,5 +1,6 @@
 from random import randint
 
+#Color class to make the output more readable
 class color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -12,10 +13,12 @@ class color:
    UNDERLINE = '\033[4m'
    END = '\033[0m'
 
+#Main function to start the program
 def main():
     print(color.BOLD + color.GREEN + "Welcome to the Number Guessing Game: " + color.END)
     navigator()
     
+#Function to navigate the user
 def navigator():
     print("")
     print("Please choose a difficulty level: ")
@@ -44,6 +47,7 @@ def navigator():
             print(color.BOLD + color.GREEN + "Please choose a value from the list!" + color.END)
             navigator()
 
+#Function to guess the number
 def guessing(v, t):
     g = int(input("Try guessing the number: "))
 
@@ -62,17 +66,21 @@ def guessing(v, t):
         print(color.BOLD + color.GREEN + f"GUESSED! Nice Job! You did it in {t} tries" + color.END)
         navigator()
 
+#Function to generate a random number (0-10)
 def generateRandomNumberEasy():
     value = randint(1,10)
     return value
 
+#Function to generate a random number (0-100)
 def generateRandomNumberMedium():
     value = randint(1,100)
     return value
 
+#Function to generate a random number (0-1000)
 def generateRandomNumberDifficult():
     value = randint(1,1000)
     return value
 
+#Start the program
 if __name__ == "__main__":
     main()

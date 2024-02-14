@@ -19,21 +19,27 @@
 #complete, the script will again ask the user its choice. If the user
 #chooses to exit, the program will stop.
 
+#The code for the calculator is given below:
 def main():
     selectOperation()
 
+#Function to add two numbers
 def addition(n, m):
     return n+m
 
+#Function to subtract two numbers
 def subtraction(n, m):
     return n-m
 
+#Function to multiply two numbers
 def multiplication(n, m):
     return n*m
 
+#Function to divide two numbers
 def division(n, m):
     return n/m
 
+#Function to select the operation
 def selectOperation():
     print("Choose the operation you want to do: ")
     print("1. Addition")
@@ -74,5 +80,6 @@ def selectOperation():
             print("Please insert a value in the list!")
             selectOperation()
 
+#Call the main function
 if __name__ == "__main__":
     main()

@@ -12,6 +12,7 @@ user. If the user chooses to exit, the program will simply exit. """
 from random import seed
 from random import randint
 
+#Color class to make the output more readable
 class color:
    PURPLE = '\033[95m'
    CYAN = '\033[96m'
@@ -24,39 +25,47 @@ class color:
    UNDERLINE = '\033[4m'
    END = '\033[0m'
 
+#Main function to start the program
 def main():
     InitRollingSimulator()
 
+#Function to roll a D4
 def RollD4():
     value = randint(1, 4)
     print("")
     print(color.BOLD + "The Dice result is " +color.RED + f"{value}" + color.END)
 
+#Function to roll a D6
 def RollD6():
     value = randint(1, 6)
     print("")
     print(color.BOLD + "The Dice result is " +color.RED + f"{value}" + color.END)
 
+#Function to roll a D8
 def RollD8():
     value = randint(1, 8)
     print("")
     print(color.BOLD + "The Dice result is " +color.RED + f"{value}" + color.END)
 
+#Function to roll a D10
 def RollD10():
     value = randint(1, 10)
     print("")
     print(color.BOLD + "The Dice result is " +color.RED + f"{value}" + color.END)
 
+#Function to roll a D12
 def RollD12():
     value = randint(1, 12)
     print("")
     print(color.BOLD + "The Dice result is " +color.RED + f"{value}" + color.END)
 
+#Function to roll a D20
 def RollD20():
     value = randint(1, 20)
     print("")
     print(color.BOLD + "The Dice result is " +color.RED + f"{value}" + color.END)
 
+#Function to start the rolling simulator
 def InitRollingSimulator():
     print("")
     print(color.BOLD + color.GREEN + "Choose one option below:" + color.END)
@@ -94,5 +103,6 @@ def InitRollingSimulator():
             print(color.BOLD + "Please choose a value from the list!" + color.END)
             InitRollingSimulator()
 
+#Call the main function
 if __name__ == "__main__":
     main()
